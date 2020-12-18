@@ -1,5 +1,5 @@
 {
-  "name": "atv",
+  "name": "typescript-validator",
   "version": "1.0.0",
   "description": "Another Typescript Validator",
   "main": "./dist/index.js",
