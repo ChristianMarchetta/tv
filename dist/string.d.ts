@@ -1,0 +1,32 @@
+import { Validator } from "./base";
+export declare const string: () => {
+    validator: Validator<string>;
+    min: (n: number) => any;
+    max: (n: number) => any;
+    len: (n: number) => any;
+    includes: (searchString: string, position?: number) => any;
+    startWith: (searchString: string, length?: number) => any;
+    endsWith: (searchString: string, length?: number) => any;
+    test: (re: RegExp) => any;
+    email: () => any;
+    uuid_v4: () => any;
+    concat: (...strs: string[]) => any;
+    prepend: (...strs: string[]) => any;
+    postpend: () => (...strs: string[]) => any;
+    substring: (indexStart: number, indexEnd?: number) => any;
+    padEnd: (targetLength: number, padString?: string) => any;
+    padStart: (targetLength: number, padString?: string) => any;
+    repeat: (n: number) => any;
+    replace: (searchFor: string | RegExp, replaceWith: string) => any;
+    slice: (beginIndex: number, endIndex?: number) => any;
+    toLocaleLowerCase: (locale?: string | string[]) => any;
+    toLocaleUpperCase: (locale?: string | string[]) => any;
+    toLowerCase: () => any;
+    toUpperCase: () => any;
+    trim: () => any;
+    trimStart: () => any;
+    trimEnd: () => any;
+    trimLeft: () => any;
+    trimRight: () => any;
+};
+//# sourceMappingURL=string.d.ts.map
