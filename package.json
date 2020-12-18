@@ -1,7 +1,7 @@
 {
-  "name": "tv",
+  "name": "atv",
   "version": "1.0.0",
-  "description": "Typescript Validator",
+  "description": "Another Typescript Validator",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
