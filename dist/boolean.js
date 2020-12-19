@@ -2,9 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.boolean = void 0;
 var base_1 = require("./base");
-var isInt = function (v) {
-    return !isNaN(v) && v === Math.floor(v);
-};
 var boolean = function () {
     var validator = [[base_1.filter(base_1.simpleTypeFilter("boolean"), "boolean")]];
     var composeOn = function (output, o) {

@@ -55,7 +55,13 @@ var string = function () {
                 return (_a = String.prototype).concat.apply(_a, __spreadArrays(strs, [v]));
             }));
         },
-        postpend: function () { return m.concat; },
+        postpend: function () {
+            var strs = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                strs[_i] = arguments[_i];
+            }
+            return m.concat.apply(m, strs);
+        },
         substring: function (indexStart, indexEnd) {
             if (indexEnd === void 0) { indexEnd = undefined; }
             return composeOn(m, base_1.map(function (v) { return v.substr(indexStart, indexEnd); }));

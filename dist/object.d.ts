@@ -1,9 +1,11 @@
 import { Validator, SuperSchema } from "./base";
-export declare const object: <T extends SuperSchema>(args: T, deleteAdditional?: boolean) => {
+declare type ObjectSchema<T> = {
     validator: Validator<T>;
-    anyOf: (...keys: string[]) => any;
-    oneOf: (...keys: string[]) => any;
-    required: (...keys: string[]) => any;
-    needs: (k: string, ...ks: Array<string>) => any;
+    anyOf: (...keys: string[]) => ObjectSchema<T>;
+    oneOf: (...keys: string[]) => ObjectSchema<T>;
+    required: (...keys: string[]) => ObjectSchema<T>;
+    needs: (k: string, ...ks: Array<string>) => ObjectSchema<T>;
 };
+export declare const object: <T extends SuperSchema>(args: T, deleteAdditional?: boolean) => ObjectSchema<T>;
+export {};
 //# sourceMappingURL=object.d.ts.map

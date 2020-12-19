@@ -1,10 +1,10 @@
 import { Validator } from "./base";
-export declare const boolean: () => BooleanValidator;
-declare type BooleanValidator = {
+declare type BooleanSchema = {
     validator: Validator<boolean>;
-    true: () => BooleanValidator;
-    false: () => BooleanValidator;
-    not: () => BooleanValidator;
+    true: () => BooleanSchema;
+    false: () => BooleanSchema;
+    not: () => BooleanSchema;
 };
+export declare const boolean: () => BooleanSchema;
 export {};
 //# sourceMappingURL=boolean.d.ts.map

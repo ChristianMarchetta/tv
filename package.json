@@ -1,6 +1,6 @@
 {
   "name": "another-typescript-validator",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Another Typescript Validator",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
