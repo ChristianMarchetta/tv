@@ -30,7 +30,7 @@ export const array = <T>(items:Schema<T>=undefined):ArraySchema<T> => {
     if(items != undefined){
         then.push(map((v:Array<T>) => {
             for(let i = 0; i < v.length; i++){
-                v[i] = validate(v[i], items)
+                v[i] = validate(v[i], items) as T
             }
             return v
         }))

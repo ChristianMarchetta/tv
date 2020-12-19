@@ -51,7 +51,7 @@ var deleteAdditionalPropsAndValidate = function (validators) { return base_1.map
 var object = function (args, deleteAdditional) {
     // input is declared of type T because by doing so, and assigning it to m.subvalidators below, the toType function works properly.
     //however, we still need the any type to do the validations correctly
-    if (deleteAdditional === void 0) { deleteAdditional = false; }
+    if (deleteAdditional === void 0) { deleteAdditional = true; }
     var first = [
         base_1.filter(base_1.simpleTypeFilter("object"), "object"),
         base_1.filter(function (o) { return o !== null; }, "not null"),

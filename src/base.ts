@@ -27,7 +27,7 @@ const map = <T>(map:Map<T>, label:string=""):MapObj<T> => ({m:map, f:undefined, 
 const equals = <T>(c:T) => filter(v => v === c, "equals")
 
 
-const validate = <T>(x:T, schema:Schema<T>):T => {
+const validate = <T>(x, schema:Schema<T>):toType<Schema<T>> => {
     let r = x;
 
     const vs = schema.validator

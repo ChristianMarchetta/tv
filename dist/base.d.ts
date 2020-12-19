@@ -21,7 +21,7 @@ declare type SuperSchema = {
 declare const filter: <T>(func: Filter<T>, label?: string) => FilterObj<T>;
 declare const map: <T>(map: Map<T>, label?: string) => MapObj<T>;
 declare const equals: <T>(c: T) => FilterObj<unknown>;
-declare const validate: <T>(x: T, schema: Schema<T>) => T;
+declare const validate: <T>(x: any, schema: Schema<T>) => T;
 declare const push: <T>(v: Validator<T>, ...ops: (FilterObj<T> | MapObj<T>)[]) => Validator<T>;
 declare type toType<T> = T extends Schema<number> ? number : T extends Schema<string> ? string : T extends Schema<boolean> ? boolean : T extends Schema<Array<infer O>> ? Array<toType<Schema<O>>> : T extends Schema<infer O> ? {
     [K in keyof O]: toType<O[K]>;

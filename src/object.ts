@@ -63,7 +63,7 @@ const deleteAdditionalPropsAndValidate = (validators:SuperSchema) => map((o:obje
 
 
 
-export const object = <T extends SuperSchema>(args:T, deleteAdditional:boolean=false):ObjectSchema<T> => {
+export const object = <T extends SuperSchema>(args:T, deleteAdditional:boolean=true):ObjectSchema<T> => {
 
     // input is declared of type T because by doing so, and assigning it to m.subvalidators below, the toType function works properly.
     //however, we still need the any type to do the validations correctly
