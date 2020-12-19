@@ -1,11 +1,76 @@
 import {simpleTypeFilter, Validator, filter, map, push, Schema, FilterObj, MapObj} from "./base"
 
 
+type NumberSchema = {
+    validator: Validator<number>
+
+    //Filters  
+
+    min: (n:number) => NumberSchema
+    max: (n:number) => NumberSchema
+    integer : () => NumberSchema
+    float : () => NumberSchema
+    positive : () => NumberSchema
+    natural : () => NumberSchema
+    negative : () => NumberSchema
+    negative0 : () => NumberSchema
+
+    //Mappings
+
+    add : (n:number) => NumberSchema
+    sub : (n:number) => NumberSchema
+    times : (n:number) => NumberSchema
+    divideby : (n:number) => NumberSchema
+    divides : (n:number) => NumberSchema
+    mod : (n:number) => NumberSchema
+    //reverse of mod
+    dom : (n:number) => NumberSchema
+    atan2 : (x:number) => NumberSchema
+    nata2 : (y:number) => NumberSchema
+    hypot : (...ns:number[]) => NumberSchema
+    imul : (n:number) => NumberSchema
+    upperBound : (n:number) => NumberSchema
+    lowerBound : (n:number) => NumberSchema
+    pow : (exp:number) => NumberSchema
+    //the reverse of pow
+    wop : (base:number) => NumberSchema
+    abs : () => NumberSchema
+    acos : () => NumberSchema
+    acosh : () => NumberSchema
+    asin : () => NumberSchema
+    asinh : () => NumberSchema
+    atan : () => NumberSchema
+    atanh : () => NumberSchema
+    cbrt : () => NumberSchema
+    ceil : () => NumberSchema
+    clz32 : () => NumberSchema
+    cos : () => NumberSchema
+    cosh : () => NumberSchema
+    exp : () => NumberSchema
+    expm1 : () => NumberSchema
+    floor : () => NumberSchema
+    fround : () => NumberSchema
+    log : () => NumberSchema
+    log1p : () => NumberSchema
+    log10 : () => NumberSchema
+    log2 : () => NumberSchema
+    round : () => NumberSchema
+    sign : () => NumberSchema
+    sin : () => NumberSchema
+    sinh : () => NumberSchema
+    sqrt : () => NumberSchema
+    tan : () => NumberSchema
+    tanh : () => NumberSchema
+    trunc : () => NumberSchema
+}
+
+
+
 const isInt = (v:number) => {
     return !isNaN(v) && v === Math.floor(v);
 }
 
-export const number = () => {
+export const number = ():NumberSchema => {
     const validator = [[filter(simpleTypeFilter("number"), "number")]] as Validator<number>
 
 

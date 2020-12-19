@@ -1,7 +1,20 @@
 import {simpleTypeFilter, Validator, filter, map, push, FilterObj, MapObj, Schema, SuperSchema, validate} from "./base"
 
+type ArraySchema<T> = {
+    validator: Validator<Array<T>>
 
-export const array = <T>(items:Schema<T>=undefined) => {
+    //Filters
+    min : (n:number) => ArraySchema<T>
+    max : (n:number) => ArraySchema<T>
+    len : (n:number) => ArraySchema<T>
+    forAll: (f:(i:T, index:number, array:Array<T>)=>boolean) => ArraySchema<T>
+
+    //Mappings
+    map: (f:(i:T, index:number, array:Array<T>)=>T) => ArraySchema<T>
+    filter: (f:<U>(i:T, index:number, array:Array<T>)=>boolean) => ArraySchema<T>
+}
+
+export const array = <T>(items:Schema<T>=undefined):ArraySchema<T> => {
 
     
     const first = [

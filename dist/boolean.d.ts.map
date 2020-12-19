@@ -1,1 +1,1 @@
-{"version":3,"file":"boolean.d.ts","sourceRoot":"","sources":["../src/boolean.ts"],"names":[],"mappings":"AAAA,OAAO,EAAmB,SAAS,EAAuD,MAAM,QAAQ,CAAA;AAOxG,eAAO,MAAM,OAAO;;;;;CAyBnB,CAAA"}
+{"version":3,"file":"boolean.d.ts","sourceRoot":"","sources":["../src/boolean.ts"],"names":[],"mappings":"AAAA,OAAO,EAAmB,SAAS,EAAuD,MAAM,QAAQ,CAAA;AAQxG,eAAO,MAAM,OAAO,QAAM,gBAyBzB,CAAA;AAED,aAAK,gBAAgB,GAAG;IACpB,SAAS,EAAE,SAAS,CAAC,OAAO,CAAC,CAAC;IAE9B,IAAI,EAAE,MAAM,gBAAgB,CAAA;IAE5B,KAAK,EAAE,MAAM,gBAAgB,CAAA;IAE7B,GAAG,EAAG,MAAM,gBAAgB,CAAA;CAC/B,CAAA"}

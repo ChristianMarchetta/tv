@@ -1,11 +1,17 @@
 import {simpleTypeFilter, Validator, filter, map, push, Schema, FilterObj, MapObj, equals} from "./base"
 
 
-const isInt = (v:number) => {
-    return !isNaN(v) && v === Math.floor(v);
+type BooleanSchema = {
+    validator: Validator<boolean>,
+
+    true: () => BooleanSchema
+
+    false: () => BooleanSchema
+
+    not : () => BooleanSchema
 }
 
-export const boolean = () => {
+export const boolean = ():BooleanSchema => {
     const validator = [[filter(simpleTypeFilter("boolean"), "boolean")]] as Validator<boolean>
 
 
@@ -31,3 +37,4 @@ export const boolean = () => {
 
     return m
 }
+

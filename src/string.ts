@@ -1,8 +1,41 @@
 import {simpleTypeFilter, Validator, filter, map, push, FilterObj, MapObj, Schema} from "./base"
 
+type StringSchema = {
+    validator: Validator<string>,
 
+    //Filters
+    min : (n:number) => StringSchema
+    max : (n:number) => StringSchema
+    len : (n:number) => StringSchema
+    includes : (searchString:string, position:number) => StringSchema
+    startWith : (searchString:string, length:number|undefined) => StringSchema
+    endsWith : (searchString:string, length:number|undefined) => StringSchema
+    test : (re:RegExp) => StringSchema
+    email : () => StringSchema
+    uuid_v4 : () => StringSchema
 
-export const string = () => {
+    //Mappings
+    concat : (...strs:string[]) => StringSchema
+    prepend : (...strs:string[]) => StringSchema
+    postpend : (...strs:string[]) => StringSchema
+    substring : (indexStart:number, indexEnd:number|undefined) => StringSchema
+    padEnd : (targetLength:number, padString:string) => StringSchema
+    padStart : (targetLength:number, padString:string) => StringSchema
+    repeat : (n:number) => StringSchema
+    replace : (searchFor:string|RegExp, replaceWith:string) => StringSchema
+    slice : (beginIndex:number, endIndex:number|undefined) => StringSchema
+    toLocaleLowerCase : (locale:string|string[]|undefined) => StringSchema
+    toLocaleUpperCase : (locale:string|string[]|undefined) => StringSchema
+    toLowerCase : () => StringSchema
+    toUpperCase : () => StringSchema
+    trim : () => StringSchema
+    trimStart : () => StringSchema
+    trimEnd : () => StringSchema
+    trimLeft : () => StringSchema
+    trimRight : () => StringSchema
+}
+
+export const string = ():StringSchema => {
 
     const validator = [[filter(simpleTypeFilter("string"), "string")]] as Validator<string>
 
@@ -45,7 +78,7 @@ export const string = () => {
 
         prepend : (...strs:string[]) => composeOn(m, map((v:string) => String.prototype.concat(...strs, v))),
 
-        postpend : () => m.concat,
+        postpend : (...strs:string[]) => m.concat(... strs),
 
         substring : (indexStart:number, indexEnd:number=undefined) => composeOn(m, map((v:string) => v.substr(indexStart, indexEnd ))),
 

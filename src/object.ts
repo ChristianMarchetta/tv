@@ -2,6 +2,15 @@ import {simpleTypeFilter, Validator, filter, Filter, map, validate, FilterObj, M
 import { number } from "./number"
 
 
+type ObjectSchema<T> = {
+    validator: Validator<T>,
+
+    anyOf : (...keys:string[]) => ObjectSchema<T>
+    oneOf : (...keys:string[]) => ObjectSchema<T>
+    required : (...keys:string[]) => ObjectSchema<T>
+    needs : (k:string, ...ks:Array<string>) => ObjectSchema<T>
+}
+
 const fastAnd = <T>(arr:Array<T>, f:Filter<T>) =>{
     for(const i of arr){
         if(!f(i))
@@ -54,7 +63,7 @@ const deleteAdditionalPropsAndValidate = (validators:SuperSchema) => map((o:obje
 
 
 
-export const object = <T extends SuperSchema>(args:T, deleteAdditional:boolean=false) => {
+export const object = <T extends SuperSchema>(args:T, deleteAdditional:boolean=false):ObjectSchema<T> => {
 
     // input is declared of type T because by doing so, and assigning it to m.subvalidators below, the toType function works properly.
     //however, we still need the any type to do the validations correctly
